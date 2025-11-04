@@ -50,6 +50,7 @@
 
 ## Инфраструктура
 
-Инфраструктура была предоставлена компанией 
+Инфраструктура была предоставлена компаниями yandex.cloud / cloud.ru
+
 - DevOps: [@devijoe](https://github.com/DeviJoe)
 - Checksystem: [CTFd](https://ctfd.io)
