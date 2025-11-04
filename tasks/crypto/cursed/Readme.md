@@ -14,7 +14,7 @@
 ## Решение
 
 
-[решение](solve/solve.sage)
+[решение](solve/solver.sage)
 
 ## Флаг
 
