@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Manager</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>String Manager</h1>
+            <div id="auth-section">
+                <div id="login-form" class="auth-form">
+                    <h3>Login</h3>
+                    <input type="text" id="login-username" placeholder="Username">
+                    <input type="password" id="login-password" placeholder="Password">
+                    <button onclick="login()">Login</button>
+                </div>
+                <div id="register-form" class="auth-form">
+                    <h3>Register</h3>
+                    <input type="text" id="register-username" placeholder="Username">
+                    <input type="password" id="register-password" placeholder="Password">
+                    <button onclick="register()">Register</button>
+                </div>
+                <div id="user-info" class="hidden">
+                    <span>Welcome, <span id="username-display"></span>!</span>
+                    <button onclick="logout()">Logout</button>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div id="app-section" class="hidden">
+                <div class="string-form">
+                    <h3>Create New String</h3>
+                    <input type="text" id="string-name" placeholder="String name">
+                    <textarea id="string-content" placeholder="String content"></textarea>
+                    <button onclick="createString()">Create String</button>
+                </div>
+
+                <div class="search-form">
+                    <h3>Search String</h3>
+                    <input type="text" id="search-name" placeholder="String name">
+                    <button onclick="getString()">Get String</button>
+                    <div id="search-result" class="result"></div>
+                </div>
+
+                <div class="strings-list">
+                    <h3>Your Strings</h3>
+                    <button onclick="getAllStrings()">Refresh All Strings</button>
+                    <div id="strings-result" class="result"></div>
+                </div>
+            </div>
+        </main>
+
+        <div id="message" class="message hidden"></div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

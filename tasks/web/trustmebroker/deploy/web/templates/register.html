@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Регистрация — TrustMeBroker</title>
+  <link rel="stylesheet" href="/assets/styles/main.css">
+  <style>
+    .hidden {
+      display: none
+    }
+
+    .err {
+      color: #b00020;
+      font-size: .9rem;
+      margin-top: 6px
+    }
+
+    .field-err {
+      border-color: #b00020
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header class="header">
+      <a href="/" class="brand" style="text-decoration:none;color:inherit;">
+        <i>💼💲📈</i>TrustMeBroker
+      </a>
+      <nav class="nav">
+        <a data-stepnav="1" class="active" href="javascript:void(0)">Личные данные</a>
+        <a data-stepnav="2" href="javascript:void(0)">Паспорт</a>
+        <a data-stepnav="3" href="javascript:void(0)">Подтверждение</a>
+      </nav>
+    </header>
+
+
+    <section class="card step" id="step1">
+      <div>
+        <h1>Профиль</h1>
+        <div class="sub">Укажите данные точно как в документе — это ускорит проверку.</div>
+      </div>
+
+      <div class="grid">
+        <div class="grid two">
+          <div>
+            <label for="lastname">Фамилия</label>
+            <input id="lastname" name="lastname" type="text" autocomplete="family-name" required>
+            <div class="err" data-err-for="lastname"></div>
+          </div>
+          <div>
+            <label for="firstname">Имя</label>
+            <input id="firstname" name="firstname" type="text" autocomplete="given-name" required>
+            <div class="err" data-err-for="name"></div>
+          </div>
+        </div>
+
+        <div class="grid two">
+          <div>
+            <label for="middlename">Отчество</label>
+            <input id="middlename" name="middlename" type="text" autocomplete="additional-name">
+            <div class="err" data-err-for="middlename"></div>
+          </div>
+          <div>
+            <label for="birthdate">Дата рождения</label>
+            <input id="birthdate" name="birthdate" type="date" required>
+            <div class="err" data-err-for="birthdate"></div>
+          </div>
+        </div>
+
+        <div>
+          <label for="email">E-mail</label>
+          <input id="email" name="email" type="email" autocomplete="email" required>
+          <div class="err" data-err-for="email"></div>
+        </div>
+
+        <div class="actions">
+          <button class="btn btn-primary" id="next1">Далее</button>
+        </div>
+        <div class="err" id="formErr1"></div>
+      </div>
+    </section>
+
+
+    <section class="card step hidden" id="step2">
+      <div>
+        <h1>Паспорт</h1>
+        <div class="sub">Вводите данные как в документе.</div>
+      </div>
+
+      <div class="grid">
+        <div class="grid two">
+          <div>
+            <label for="passport_series">Серия</label>
+            <input id="passport_series" name="passport_series" type="text" required>
+            <div class="err" data-err-for="passport_series"></div>
+          </div>
+          <div>
+            <label for="passport_number">Номер</label>
+            <input id="passport_number" name="passport_number" type="text" required>
+            <div class="err" data-err-for="passport_number"></div>
+          </div>
+        </div>
+
+        <div>
+          <label for="passport_issued_by">Кем выдан</label>
+          <input id="passport_issued_by" name="passport_issued_by" type="text" required>
+          <div class="err" data-err-for="passport_issued_by"></div>
+        </div>
+
+        <div class="grid two">
+          <div>
+            <label for="passport_issued_date">Дата выдачи</label>
+            <input id="passport_issued_date" name="passport_issued_date" type="date" required>
+            <div class="err" data-err-for="passport_issued_date"></div>
+          </div>
+          <div>
+            <label for="address">Адрес регистрации</label>
+            <input id="address" name="address" type="text" required>
+            <div class="err" data-err-for="address"></div>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button class="btn" id="back2">Назад</button>
+          <button class="btn btn-primary" id="next2">Далее</button>
+        </div>
+        <div class="err" id="formErr2"></div>
+      </div>
+    </section>
+
+
+    <section class="card step hidden" id="step3" style="max-width:720px;margin:32px auto;">
+      <div>
+        <h1>Заключение договора</h1>
+        <div class="sub">Для завершения регистрации ознакомьтесь с документом и подтвердите согласие.</div>
+      </div>
+
+      <div class="grid">
+        <p>Сформирован документ: <a id="agreementLink" href="/agreement.pdf" target="_blank" rel="noopener">Соглашение
+            (PDF)</a>.</p>
+
+        <label class="row">
+          <input type="checkbox" id="agree" name="agree" value="1" required>
+          <span>Я ознакомился(лась) и согласен(на) с условиями договора</span>
+        </label>
+        <div class="err" data-err-for="agree"></div>
+
+        <div class="actions">
+          <button class="btn" id="back3">Назад</button>
+          <button class="btn btn-primary" id="finish">Завершить регистрацию</button>
+        </div>
+        <div class="err" id="formErr3"></div>
+      </div>
+    </section>
+
+    <div class="footer">© TrustMeBroker. Поддержка: spam@trustmebroker</div>
+  </div>
+
+  <script>
+    
+    const state = {};
+
+    
+    function qs(sel, root = document) { return root.querySelector(sel); }
+    function qsa(sel, root = document) { return Array.from(root.querySelectorAll(sel)); }
+
+    function setActiveStep(n) {
+      qsa('.step').forEach(s => s.classList.add('hidden'));
+      qs('#step' + n).classList.remove('hidden');
+      qsa('.nav a').forEach(a => a.classList.remove('active'));
+      qs(`.nav a[data-stepnav="${n}"]`).classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function collectForm() {
+      
+      qsa('input').forEach(inp => {
+        if (inp.type === 'checkbox') {
+          state[inp.name] = inp.checked ? inp.value || "1" : "";
+        } else {
+          state[inp.name] = inp.value;
+        }
+      });
+      return Object.assign({}, state);
+    }
+
+    function clearErrors() {
+      qsa('.err').forEach(e => e.textContent = "");
+      qsa('input').forEach(i => i.classList.remove('field-err'));
+    }
+
+    function applyErrors(errors, formErrId) {
+      
+      const fieldKeys = new Set(['lastname', 'firstname', 'middlename', 'birthdate', 'email',
+        'passport_series', 'passport_number', 'passport_issued_by', 'passport_issued_date', 'address', 'agree']);
+      let generic = [];
+      for (const msg of (errors || [])) {
+        let matched = false;
+        for (const key of fieldKeys) {
+          if (msg.toLowerCase().startsWith(key)) {
+            const el = qs(`[data-err-for="${key}"]`);
+            const input = qs(`[name="${key}"]`);
+            if (el) el.textContent = msg;
+            if (input) input.classList.add('field-err');
+            matched = true; break;
+          }
+        }
+        if (!matched) generic.push(msg);
+      }
+      if (generic.length) {
+        const fe = qs('#' + formErrId);
+        if (fe) fe.textContent = generic.join('\n');
+      }
+    }
+
+    async function postJSON(url, data) {
+      const res = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      const ct = res.headers.get('content-type') || '';
+      const json = ct.includes('application/json') ? await res.json() : {};
+      return { ok: res.ok, status: res.status, data: json };
+    }
+
+    
+    qs('#next1').addEventListener('click', async () => {
+      clearErrors();
+      const payload = collectForm();
+      const { ok, data, status } = await postJSON('/register/step1', payload);
+      if (!ok || !data.ok) {
+        applyErrors(data.errors || [data.error || `Ошибка (${status})`], 'formErr1');
+        return;
+      }
+      setActiveStep(2);
+    });
+
+    qs('#back2').addEventListener('click', () => setActiveStep(1));
+    qs('#next2').addEventListener('click', async () => {
+      clearErrors();
+      const payload = collectForm();
+      const { ok, data, status } = await postJSON('/register/step2', payload);
+      if (!ok || !data.ok) {
+        applyErrors(data.errors || [data.error || `Ошибка (${status})`], 'formErr2');
+        return;
+      }
+      
+      if (data.agreement_id) {
+        state.agreement_id = data.agreement_id;
+      }
+      
+      const a = qs('#agreementLink');
+      a.href = '/agreement';
+      setActiveStep(3);
+    });
+
+    qs('#back3').addEventListener('click', () => setActiveStep(2));
+    qs('#finish').addEventListener('click', async () => {
+      clearErrors();
+      const payload = collectForm();
+      payload.agree = qs('#agree').checked ? '1' : '';
+      const { ok, data, status } = await postJSON('/register/step3', payload);
+      if (!ok || !data.ok) {
+        applyErrors(data.errors || [data.error || `Ошибка (${status})`], 'formErr3');
+        return;
+      }
+      
+      window.location.href = '/finish';
+    });
+
+    
+    qsa('.nav a').forEach(a => a.addEventListener('click', (e) => e.preventDefault()));
+  </script>
+</body>
+
+</html>

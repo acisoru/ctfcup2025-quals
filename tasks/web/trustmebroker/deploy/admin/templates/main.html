@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <title>Admin Panel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    :root {
+      --bg: #0f172a;        /* slate-900 */
+      --card: #111827;      /* gray-900 */
+      --text: #e5e7eb;      /* gray-200 */
+      --muted: #9ca3af;     /* gray-400 */
+      --accent: #60a5fa;    /* blue-400 */
+      --border: #1f2937;    /* gray-800 */
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0; background: var(--bg); color: var(--text);
+      font: 16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";
+    }
+    header {
+      display:flex; align-items:center; justify-content:space-between;
+      padding: 12px 20px; border-bottom:1px solid var(--border); background: rgba(17,24,39,.6);
+      position:sticky; top:0; backdrop-filter: blur(6px);
+    }
+    .brand { font-weight:700; letter-spacing:.3px; }
+    .nav a {
+      display:inline-block; padding:8px 12px; border:1px solid var(--border);
+      border-radius:10px; text-decoration:none; color:var(--text);
+    }
+    .nav a:hover { border-color: var(--accent); color: var(--accent); }
+    main {
+      max-width: 960px; margin: 60px auto; padding: 0 20px;
+      display:grid; place-items:center;
+    }
+    .card {
+      width:100%; max-width: 820px; background: var(--card);
+      border:1px solid var(--border); border-radius:16px; padding: 48px 32px;
+      text-align:center; box-shadow: 0 10px 30px rgba(0,0,0,.2);
+    }
+    .counter {
+      font-size: clamp(42px, 7vw, 92px);
+      font-weight: 800; letter-spacing: .5px; margin: 0 0 12px;
+    }
+    .counter b { color: var(--accent); font-weight: 800; }
+    .subtitle {
+      margin: 0; color: var(--muted); font-size: clamp(14px, 2.4vw, 20px);
+    }
+    footer {
+      margin: 40px 0 10px; text-align:center; color: var(--muted); font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">Admin Panel</div>
+    <nav class="nav">
+      <a href="/agreements">Договоры на рассмотрении</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="card" aria-labelledby="counter-title">
+      <h1 id="counter-title" class="counter">
+        <b>{{.days}}</b> дней&nbsp;&nbsp; <b>{{.hours}}</b> часов
+      </h1>
+      <p class="subtitle">до завершения процедуры вывода активов</p>
+    </section>
+    <footer>© TrustMeBroker</footer>
+  </main>
+</body>
+</html>

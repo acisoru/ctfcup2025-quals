@@ -1,0 +1,22 @@
+version: "3"
+services: 
+  node:
+    build: .
+    container_name: ctfmarket_app
+    ports:
+      - "7331:7331"
+    depends_on:
+      - mariadb
+    environment:
+      - FLAG=CTFCup{Cur3ncy_Tr1ck5_N3v3r_F41L}
+
+  mariadb:
+    image: mariadb:latest
+    container_name: ctfmarket_db
+    expose:
+      - "3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: "SecureRootPass2024"
+      MYSQL_DATABASE: "ctfmarket_db"
+      MYSQL_USER: "ctfmarket_user"
+      MYSQL_PASSWORD: "ctfmarket_pass"

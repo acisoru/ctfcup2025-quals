@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  c2-server:
+    build: .
+    ports:
+      - "4444:4444"
+    restart: unless-stopped
+    container_name: c2-server
+    networks:
+      - c2-network
+
+networks:
+  c2-network:
+    driver: bridge

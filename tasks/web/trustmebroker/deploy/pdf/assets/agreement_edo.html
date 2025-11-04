@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Соглашение об обслуживании</title>
+
+  <style>
+    @page {
+      size: A4;
+      margin: 28mm;
+    }
+
+    body {
+      font-family: DejaVu Sans, "Arial Unicode MS", sans-serif;
+      font-size: 12px;
+      color: #111;
+      line-height: 1.4;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-size: 16px;
+      margin: 0 0 6px;
+    }
+
+    .meta {
+      font-size: 11px;
+      color: #444;
+      margin-bottom: 12px;
+    }
+
+    .section {
+      margin-bottom: 12px;
+    }
+
+    .label {
+      font-weight: 700;
+      display: inline-block;
+      width: 160px;
+      vertical-align: top;
+    }
+
+    .value {
+      display: inline-block;
+      width: calc(100% - 170px);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 8px;
+    }
+
+    td,
+    th {
+      padding: 6px 8px;
+      vertical-align: top;
+      border: 1px solid #ddd;
+    }
+
+    .signature {
+      margin-top: 28px;
+    }
+
+    .small {
+      font-size: 10px;
+      color: #666;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 20mm;
+      left: 28mm;
+      right: 28mm;
+      text-align: center;
+      font-size: 10px;
+      color: #666;
+    }
+
+    .tos h2 {
+      font-size: 13px;
+      margin-bottom: 6px;
+    }
+
+    .tos ol {
+      margin: 6px 0 0 16px;
+      padding: 0;
+    }
+
+    .tos li {
+      margin: 4px 0;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Соглашение об обслуживании клиентского счёта</h1>
+    <div class="meta">Номер заявки: agreement_id</div>
+  </header>
+
+  <section class="section">
+    <div><span class="label">Фамилия:</span><span class="value">lastname</span></div>
+    <div><span class="label">Имя:</span><span class="value">firstname</span></div>
+    <div><span class="label">Отчество:</span><span class="value">middlename</span></div>
+    <div><span class="label">Дата рождения:</span><span class="value">birthdate</span></div>
+    <div><span class="label">Email:</span><span class="value">email</span></div>
+    <div><span class="label">Адрес регистрации:</span><span class="value">address</span></div>
+  </section>
+
+  <section class="section">
+    <h2 style="font-size:13px; margin-bottom:6px;">Документ, удостоверяющий личность</h2>
+    <table>
+      <tr>
+        <th>Серия</th>
+        <th>Номер</th>
+        <th>Кем выдан</th>
+        <th>Дата выдачи</th>
+      </tr>
+      <tr>
+        <td>passport_series</td>
+        <td>passport_number</td>
+        <td>passport_issued_by</td>
+        <td>passport_issued_date</td>
+      </tr>
+    </table>
+  </section>
+
+  <section class="section tos">
+    <h2>Условия обслуживания</h2>
+    <p>
+      Настоящим подтверждаю, что предоставленные мной сведения являются истинными и полными. Я даю согласие на обработку
+      персональных данных
+      в объёме, необходимом для заключения и исполнения договора об оказании брокерских/финансовых услуг. Настоящее
+      соглашение вступает в силу
+      с момента его подписания и действует до полного выполнения обязательств сторонами.
+    </p>
+    <ol>
+      <li>Клиент подтверждает право Компании запрашивать, хранить и обрабатывать документы, необходимые для
+        идентификации.</li>
+      <li>Компания принимает меры по защите персональных данных, однако клиент признаёт возможность технических рисков.
+      </li>
+      <li>Все споры решаются в соответствии с действующим законодательством.</li>
+    </ol>
+  </section>
+
+  <section class="signature">
+    <div style="display:flex; justify-content:space-between;">
+      <div>
+        <div class="label" style="display:block;">Подпись клиента:</div>
+        <div style="height:48px; border-bottom:1px solid #ccc; width:280px;"></div>
+        <div class="small">ФИО и подпись подтверждаются после проверки документов.</div>
+      </div>
+      <div style="text-align:right;">
+        <div class="label" style="display:block;">Дата:</div>
+        <div style="height:20px;"></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    Сформировано автоматически.<br> © TrustMeBroker. Поддержка: support@example.test
+  </footer>
+</body>
+
+</html>

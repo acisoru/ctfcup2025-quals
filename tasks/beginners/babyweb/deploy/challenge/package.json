@@ -1,0 +1,23 @@
+{
+  "name": "ctfmarket",
+  "version": "2.0.0",
+  "description": "CTFMarket - Marketplace for CTF Teams",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": ["ctf", "marketplace", "security"],
+  "author": "cyb3rsec",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.2.1",
+    "cookie-parser": "^1.4.6",
+    "express": "^4.17.1",
+    "express-json-validator-middleware": "^3.0.1",
+    "express-rate-limit": "^6.7.0",
+    "jsonwebtoken": "9.0.0",
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1",
+    "xml-js": "^1.6.11"
+  }
+}

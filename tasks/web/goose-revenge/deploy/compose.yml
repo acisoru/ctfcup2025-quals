@@ -1,0 +1,27 @@
+services:
+  goose:
+    build: .
+    platform: linux/amd64
+    ports:
+      - "9119:9119"
+    restart: unless-stopped
+    cpus: 1
+    pids_limit: 64
+    mem_limit: 512m
+    environment:
+      - FLAG=ctfcup{test_flag}
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:latest
+    restart: unless-stopped
+    volumes:
+      - mongo:/data
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=mongo111
+      - MONGO_INITDB_ROOT_PASSWORD=mongo111
+      - MONGO_INITDB_DATABASE=mongo111
+
+volumes:
+  mongo:

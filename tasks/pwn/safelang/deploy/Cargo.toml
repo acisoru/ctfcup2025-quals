@@ -1,0 +1,12 @@
+[package]
+name = "safelang"
+version = "0.1.0"
+edition = "2024"
+
+[lib]
+name = "validation_macro"
+proc-macro = true
+
+[dependencies]
+syn = { version = "2.0", features = ["visit", "full", "extra-traits"] }
+quote = "1.0"

@@ -1,0 +1,5 @@
+➜  babycrypto python3 task.py
+enc: HNzfqswupoO5eyhbKlOe/f6yLnlbjtaY+me+3SkoDoNOzHWDJdD4NOMOFeuyoOmrb4q2XnQWyZguzD+c
+m_k: ctfcup_master_key_0x1337
+➜  babycrypto
+

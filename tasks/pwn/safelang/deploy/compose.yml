@@ -1,0 +1,12 @@
+services:
+  safelang:
+    build: .
+    platform: linux/amd64
+    ports:
+      - "2112:2112"
+    restart: unless-stopped
+    cpus: 1
+    pids_limit: 64
+    mem_limit: 512m
+    environment:
+      - FLAG=ctfcup{50af228899c1683bc4c21789ddf738dd}

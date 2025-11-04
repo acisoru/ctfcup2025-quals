@@ -1,0 +1,13 @@
+[package]
+name = "nanomachines"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+libc = "0.2.177"
+nix = {version="0.30.1", features = ["ptrace", "process", "signal"]}
+num = {version="0.4.3", features = ["num-bigint"]}
+clap = {version = "4.5.17", features = [ "derive" ]}
+
+[profile.release]
+strip="symbols"

@@ -1,0 +1,9 @@
+[package]
+name = "miracle"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+clap = { version = "4.5.51", features = ["derive"] }
+num = { version = "0.4.3", features = ["num-bigint", "rand", "serde"] }
+

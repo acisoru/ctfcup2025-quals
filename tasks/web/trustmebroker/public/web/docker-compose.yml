@@ -1,0 +1,15 @@
+services:
+  web:
+    build: ./web
+    environment:
+      - PORT=8080
+    ...
+  admin:
+    build: ./admin
+    environment:
+      - PORT=9090
+    ...
+  pdf:
+    build: ./pdf
+    environment:
+      - PORT=3000

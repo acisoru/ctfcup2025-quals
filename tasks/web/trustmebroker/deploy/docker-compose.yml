@@ -1,0 +1,28 @@
+services:
+  web:
+    build: ./web
+    environment:
+      - PORT=8080
+      - DB_PATH=/data/app.db
+      - DATA_DIR=/app/data
+      - PDF_SERVICE_URL=http://pdf:3000
+    volumes:
+      - ./db:/data
+    ports: ["8080:8080"]
+    depends_on: [pdf]
+    restart: unless-stopped
+    
+  admin:
+    build: ./admin
+    environment:
+      - PORT=9090
+      - DB_PATH=/data/app.db
+    volumes:
+      - ./db:/data
+    restart: unless-stopped
+
+  pdf:
+    build: ./pdf
+    environment:
+      - PORT=3000
+    restart: unless-stopped

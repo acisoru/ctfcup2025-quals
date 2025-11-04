@@ -1,0 +1,12 @@
+services:
+  geo:
+    build: .
+    platform: linux/amd64
+    ports:
+      - "8118:8118"
+    restart: unless-stopped
+    cpus: 1
+    pids_limit: 64
+    mem_limit: 512m
+    environment:
+      - FLAG=ctfcup{test_flag}

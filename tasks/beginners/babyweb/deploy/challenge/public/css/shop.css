@@ -1,0 +1,47 @@
+body {
+    background: #f5f7fa;
+}
+
+.table {
+    background-color: white;
+}
+
+.product-thumbnail {
+    max-width: 120px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.card {
+    position: sticky;
+    top: 20px;
+}
+
+.btn-success {
+    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+    border: none;
+    font-weight: bold;
+    padding: 12px;
+}
+
+.btn-success:hover {
+    background: linear-gradient(135deg, #38ef7d 0%, #11998e 100%);
+    transform: translateY(-2px);
+    transition: all 0.3s;
+}
+
+.btn-secondary {
+    background: linear-gradient(135deg, #fc466b 0%, #3f5efb 100%);
+    border: none;
+    font-weight: bold;
+}
+
+.btn-secondary:hover {
+    background: linear-gradient(135deg, #3f5efb 0%, #fc466b 100%);
+}
+
+#total-amount {
+    color: #11998e;
+    font-weight: bold;
+}
+

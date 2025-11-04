@@ -1,0 +1,14 @@
+services:
+  service:
+    build: service
+    restart: unless-stopped
+    cpus: 1.0
+    mem_limit: 1G
+    memswap_limit: 1G
+    pids_limit: 1024
+    ulimits:
+      nproc: 1024
+      nofile: 16384
+    stop_grace_period: 3s
+    ports:
+      - '12345:31337'
